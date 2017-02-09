@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  img(src="images/f5-logo.png", align="left", height=75, width=75)
+  h1= title
+  p Welcome to #{title}
+
+  br
+  br
+  p <b>Server IP</b> = #{server_ip}
+  p <b>Server Port</b> = #{server_port}
+  br
+  p <b>Client IP</b> = #{client_ip}
+  p <b>Client Port</b> = #{client_port}
+  p <b>Client Protocol</b> = #{client_proto}
+  br
+  p <b>Request Method</b> = #{request_method}
+  p <b>Request URL</b> = #{request_url}
+  p <b>Request Headers</b> =
+
+  div.indent
+    each value,header in request_headers
+      p=header + ": " + value
+  p <b>Request Body</b> = #{request_body}
