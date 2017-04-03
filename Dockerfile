@@ -19,7 +19,6 @@ COPY bin /usr/src/app/bin
 COPY public /usr/src/app/public
 COPY routes /usr/src/app/routes
 COPY views /usr/src/app/views
-COPY test /usr/src/app/test
 
 
 EXPOSE 80
