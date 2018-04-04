@@ -1,13 +1,14 @@
 body {
-  padding: 50px;
+  padding: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #42adf5;
+  background-color: #f2f3f3;
+  /* Default: background-color: #f2f3f3; */
   /* AWS: background-color: #f4bf42; */
   /* Azure: background-color: #42adf4; */
   /* Google: background-color: #ffffff */
   /* Blue: background-color: #42adf5; */
   /* Green: background-color: #91e094; */
-  /* Default: background-color: #f2f3f3; */
+
   / * TEST * /
 
 }
@@ -19,3 +20,178 @@ a {
 div.indent{
   padding-left: 50px;
 }
+/*
+Nav Bar
+*/
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #afa8a8;
+  /* background-color: #c40900;  Red */
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  /* color: #f2f2f2; */
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.login a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #c40900;
+  color: white;
+}
+
+
+.article a {
+  text-decoration: none;
+  /*border-bottom:1px dotted;*/
+  border-color: #ff6600;
+  color: #ff6600;
+}
+
+.article a:hover {
+  border-bottom: 1px dotted;
+}
+
+
+#consoleLog {
+  background-color: #ffffff;
+  border: solid 1px #999999;
+  border-top-color: #CCCCCC;
+  border-left-color: #CCCCCC;
+  padding: 5px;
+  width: 100%;
+  height: 172px;
+  overflow-y: scroll;
+}
+
+#consoleLog p {
+  font-size: 11px;
+  line-height: 150%;
+}
+
+#webSocketSupp {
+  display: none;
+  height: 50px;
+  border: 2px solid #060;
+  background-color: #F0FFF0;
+  margin: 20px;
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 16px;
+  color: #0d8900;
+}
+
+#webSocketSupp p {
+  font-size: 16px;
+  color: #0d8900;
+}
+
+#noWebSocketSupp {
+  display: none;
+  border: 2px solid #cb0000;
+  background-color: #FFE1E1;
+  margin: 20px;
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 16px;
+  color: #800000;
+}
+
+#noWebSocketSupp p {
+  font-size: 16px;
+  line-height: 125%;
+  color: #800000;
+  margin-top: 10px;
+}
+#noWebSocketSupp p:first-child {
+  margin-top: 0px;
+}
+
+#echo {
+
+}
+
+#echo button {
+  margin-top: 5px;
+}
+
+.draw-border {
+  border:1px solid #ccc;
+}
+
+figcaption {
+  font-weight: 700;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.echo-button {
+  background-color: #eee;
+  /*color: #f60;*/
+  vertical-align:baseline;
+  font-size:100%;
+  font-weight: 700;
+  border-color: #ccc;
+  border-width: 1px;
+  border-style: solid !important;
+}
+
+.echo-button:hover {
+  color: #f60;
+  border-color: #f60;
+  border-width: 1px;
+  border-style: solid !important;
+}
+
+.echo-checkbox {
+  -webkit-appearance: checkbox !important;
+  color: green;
+}
+
+.echo-checkbox:hover {
+  outline:5px !important;
+  -webkit-appearance:checkbox !important;
+  box-shadow:none;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  outline:1px;
+}
+
+.space {
+  padding-bottom: 40px;
+}
+
+#content {
+  overflow: auto;
+}
+#headers {
+  float: left;
+  width: 60%;
+}
+#geoout {
+  float: right;
+  width: 40%;
+}
+

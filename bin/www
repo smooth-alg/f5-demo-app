@@ -4,33 +4,121 @@
  * Module dependencies.
  */
 
+var os = require('os');
+var fs = require('fs')
+var http = require('http');
+var https  = require('https');
+var auth = require('basic-auth');
+var url = require('url');
+var SocketServer = require('ws').Server;
 var app = require('../app');
 var debug = require('debug')('f5-demo-app:server');
-var http = require('http');
-var os = require('os');
+
+var connectedUsers = [];
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '80');
-app.set('port', port);
+var httpPort = normalizePort(process.env.HTTP_PORT || '80');
+var httpsPort = normalizePort(process.env.HTTPS_PORT || '443');
 
-/**
- * Create HTTP server.
- */
+try {
+  var sslCert = fs.readFileSync('private/website.crt')
+} catch (err) {
+  console.log(err);
+  // If the type is not what you want, then just throw the error again.
+  if (err.code !== 'ENOENT') {
+    // Handle a file-not-found error
+    console.log("Can't find cert");
+  }
+}
 
-var server = http.createServer(app);
+try {
+  var sslKey = fs.readFileSync('private/website.key')
+} catch (err) {
+  console.log(err);
+  // If the type is not what you want, then just throw the error again.
+  if (err.code !== 'ENOENT') {
+    // Handle a file-not-found error
+    console.log("Can't find key");
+  }
+}
 
+if (sslCert && sslKey)
+{
+  console.log("Found SSL Keys. Creating HTTP and HTTPS Servers");
+  const serverOptions = {
+    key: sslKey,
+    cert: sslCert
+  }
+  httpServer = http.createServer(app).listen(httpPort);
+  httpsServer = https.createServer(serverOptions, app).listen(httpsPort);
+} else {
+  console.log("No SSL Keys Found. Only creating HTTP Server");
+  httpServer = http.createServer(app).listen(httpPort);
+}
 /**
  * Listen on provided port, on all network interfaces.
  */
+httpServer.listen(httpPort);
+httpServer.on('error', httpOnError);
+httpServer.on('listening', httpOnListening);
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+httpsServer.listen(httpsPort);
+httpsServer.on('error', httpsOnError);
+httpsServer.on('listening', httpsOnListening);
 
 
+/**
+ * Create Simple WS Echo Server
+ */
+var ws = new SocketServer({ server: httpServer  });
+
+ws.on('connection', function connection(ws, req) {
+  var ip = req.connection.remoteAddress;
+  var port = req.connection.remotePort;
+  console.log("received connection from: 'ip=%s port=%s'", ip, port );
+
+  ws.on('message', function incoming(data) {
+    console.log("Received Data: \"%s\"", data )
+
+    setTimeout(function timeout() {
+      console.log("Sending Data: \"%s\"", data )
+      ws.send( data );
+    }, 500);
+  });
+
+  ws.on('close', function close() {
+    console.log('disconnected');
+  });
+
+});
+
+var wss = new SocketServer({ server: httpsServer  });
+
+wss.on('connection', function connection(wss, req) {
+  var ip = req.connection.remoteAddress;
+  var port = req.connection.remotePort;
+  console.log("received connection from: 'ip=%s port=%s'", ip, port );
+
+  wss.on('message', function incoming(data) {
+    console.log("Received Data: \"%s\"", data )
+
+    setTimeout(function timeout() {
+      console.log("Sending Data: \"%s\"", data )
+      wss.send( data );
+    }, 500);
+  });
+
+  wss.on('close', function close() {
+    console.log('disconnected');
+  });
+
+});
+
+
+//
 function getServerIP() {
   var interfaces = os.networkInterfaces();
   for (var k in interfaces) {
@@ -68,7 +156,31 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+function httpOnError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+function httpsOnError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -96,8 +208,17 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening() {
-  var addr = server.address();
+
+function httpOnListening() {
+  var addr = httpServer.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+function httpsOnListening() {
+  var addr = httpsServer.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;

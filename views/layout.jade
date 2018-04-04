@@ -3,5 +3,16 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='javascripts/geolocation.js')
   body
+    img(src="images/f5-logo.png", align="left", height=75, width=75)
+    h1= title
+    p Welcome to #{title}
+    div.topnav
+      a(title="Home" href="/") Home
+      a(title="websocket" href="/ws") Websocket
+      a(title="api" href="/api") API
+      a(title="contact" href="/contact") Contact
+      div.login
+        a(title="login" href="/login" float="right" alight="right") Login
     block content

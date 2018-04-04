@@ -1,5 +1,6 @@
-# Use the argon LTS version of node
-FROM node:argon
+FROM alpine
+RUN apk update && apk upgrade
+RUN apk add nodejs
 
 # Install dependencies
 # Separate step so that if we've only changed source but not package.json, we

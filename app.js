@@ -1,4 +1,7 @@
 var express = require('express');
+var app = express();
+
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -7,8 +10,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
-var app = express();
+var api = require('./routes/api');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +27,10 @@ app.enable('trust proxy')
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/api', api);
+
+
+// error handlers
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -33,7 +39,16 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// error handlers
+app.use(function (req, res, next) {
+  console.log('middleware');
+  req.testing = 'testing';
+  return next();
+});
+
+app.get('/', function(req, res, next){
+  console.log('get route', req.testing);
+  res.end();
+});
 
 // development error handler
 // will print stacktrace
@@ -56,6 +71,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 
 
 module.exports = app;
