@@ -1,8 +1,7 @@
 body {
   padding: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  // Default
-  background-color: #f2f3f3;
+  background-color: #42adf5;
   /* Default: background-color: #f2f3f3; */
   /* AWS: background-color: #f4bf42; */
   /* Azure: background-color: #42adf4; */
@@ -10,7 +9,7 @@ body {
   /* Blue: background-color: #42adf5; */
   /* Green: background-color: #91e094; */
 
-  / * Default * /
+  / * Blue * /
 
 }
 
