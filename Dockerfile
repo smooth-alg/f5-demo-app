@@ -18,11 +18,13 @@ COPY app.js /usr/src/app/app.js
 COPY bin /usr/src/app/bin
 #COPY node_modules /usr/src/app/node_modules
 COPY public /usr/src/app/public
+COPY private /usr/src/app/private
 COPY routes /usr/src/app/routes
 COPY views /usr/src/app/views
 
 
 EXPOSE 80
+EXPOSE 443
 
 #ENV WWW_DIR /usr/src/app/public
 
