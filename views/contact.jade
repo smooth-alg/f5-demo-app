@@ -1,0 +1,58 @@
+extends layout
+
+block content
+
+    div#content
+        p
+        .contactf5
+            .row
+                b F5 Networks, Inc
+            .row
+                a(href='https://www.f5.com') www.f5.com
+            .row
+                a(href='https://devcentral.f5.com') devcentral.f5.com
+            .row
+                a(href='https://www.github.com/f5networks') www.github.com/f5networks
+            .row
+                a(href='https://www.github.com/f5devcentral') www.github.com/f5devcentral
+            .row
+                b Phone: (206) 272-5555
+            .row
+                b Toll-free: (888) 88BIGIP
+            .row
+                b Fax: (206) 272-5556
+
+        .cta
+            .container
+                .row
+                    .col-md-6.col-sm-offset-2
+                        he.text-white
+                            | Fill in the following:
+                .gap40
+                .row
+                    .col-md-8.col-md-offset-2
+                        form#contact.contact-form.form.form-inline(action='https://www.f5.com', method='POST')
+                            .row
+                                .col-md-6
+                                    input(type='text', name='firstname', placeholder='First Name', required='')
+                                .col-md-6
+                                    input(type='text', name='lastname', placeholder='Last Name', required='')
+                            .row
+                                .col-md-6
+                                    input(type='text', name='title', placeholder='Title', required='')
+                                .col-md-6
+                                    input(type='text', name='company', placeholder='Company', required='')
+                            .row
+                                .col-md-6
+                                    input(type='email', name='email', placeholder='Email Address', required='')
+                                .col-md-6
+                                    input(type='text', name='phone', placeholder='Phone Number', required='')
+
+
+        button(type=button class="cbutton" onclick="window.open('https://f5.com/products/how-to-buy','_blank');") Submit
+
+        p
+            strong
+                i Disclaimer:
+            i  Form does not actually submit :-)
+

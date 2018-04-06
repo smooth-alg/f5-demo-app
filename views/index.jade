@@ -1,38 +1,53 @@
-extends layout
-
-block content
-  br
-  br
-  div#content
-    <style onload="geoFindMe()"></style>
-    div#geoout
-    div#headers
-      p <b>Server IP</b> = #{server_ip}
-      p <b>Server Port</b> = #{server_port}
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='javascripts/geolocation.js')
+  body
+    img(src="images/f5-logo.png", align="left", height=75, width=75)
+    h1= title
+    p Welcome to #{title}
+    div.topnav
+      a(title="Home" href="/") Home
+      a(title="websocket" href="/ws") Websocket
+      a(title="api" href="/api") API
+      a(title="contact" href="/contact") Contact
+      div.login
+        a(title="login" href="/login" float="right" alight="right") Login
+    block content
       br
-      p <b>Client IP</b> = #{client_ip}
-      p <b>Client Port</b> = #{client_port}
-      p <b>Client Protocol</b> = #{client_proto}
       br
-      p <b>Request Method</b> = #{request_method}
-      p <b>Request URL</b> = #{request_url}
-      p <b>Request Headers</b> =
+      div#content
+        <style onload="geoFindMe()"></style>
+        div#geoout
+        div#headers
+          p <b>Server IP</b> = #{server_ip}
+          p <b>Server Port</b> = #{server_port}
+          br
+          p <b>Client IP</b> = #{client_ip}
+          p <b>Client Port</b> = #{client_port}
+          p <b>Client Protocol</b> = #{client_proto}
+          br
+          p <b>Request Method</b> = #{request_method}
+          p <b>Request URL</b> = #{request_url}
+          p <b>Request Headers</b> =
 
-      div.indent
-        each value,header in request_headers
-          p=header + ": " + value
-      p <b>Request Body</b> = #{request_body}
+          div.indent
+            each value,header in request_headers
+              p=header + ": " + value
+          p <b>Request Body</b> = #{request_body}
 
-  // Google Recommendation
-  //script.
-  //  function downloadJSAtOnload() {
-  //    var element = document.createElement("script");
-  //    element.src = "javascripts/geolocation.js";
-  //    document.body.appendChild(element);
-  //  }
-  //  if (window.addEventListener)
-  //    window.addEventListener("load", downloadJSAtOnload, false);
-  //  else if (window.attachEvent)
-  //    window.attachEvent("onload", downloadJSAtOnload);
-  //  else window.onload = downloadJSAtOnload;
+      // Google Recommendation
+      //script.
+      //  function downloadJSAtOnload() {
+      //    var element = document.createElement("script");
+      //    element.src = "javascripts/geolocation.js";
+      //    document.body.appendChild(element);
+      //  }
+      //  if (window.addEventListener)
+      //    window.addEventListener("load", downloadJSAtOnload, false);
+      //  else if (window.attachEvent)
+      //    window.attachEvent("onload", downloadJSAtOnload);
+      //  else window.onload = downloadJSAtOnload;
 

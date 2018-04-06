@@ -63,7 +63,7 @@ router.get('/contact', function(req, res, next) {
     var request_headers = req.headers;
     var request_body = JSON.stringify(req.body);
 
-    res.render('index', { title: 'Demo App - Contact ',
+    res.render('contact', { title: 'Demo App - Contact ',
         server_ip: server_ip,
         server_port: server_port,
         client_ip: client_ip,
@@ -87,7 +87,7 @@ router.get('/login', function(req, res, next) {
     var request_headers = req.headers;
     var request_body = JSON.stringify(req.body);
 
-    res.render('index', { title: 'Demo App - Login',
+    res.render('login', { title: 'Demo App - Login',
         server_ip: server_ip,
         server_port: server_port,
         client_ip: client_ip,

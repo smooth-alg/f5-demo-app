@@ -1,7 +1,7 @@
 body {
   padding: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #91e094;
+  background-color: #f2f3f3;
   /* Default: background-color: #f2f3f3; */
   /* AWS: background-color: #f4bf42; */
   /* Azure: background-color: #42adf4; */
@@ -192,3 +192,247 @@ figcaption {
   width: 40%;
 }
 
+/* =============================
+   COMMON STYLES
+================================ */
+
+.gap10 {
+  margin: 5px 0;
+}
+
+.gap20 {
+  margin: 10px 0;
+}
+
+.gap30 {
+  margin: 15px 0;
+}
+
+.gap40 {
+  margin: 20px 0;
+}
+
+.gap50 {
+  margin: 25px 0;
+}
+
+.gap60 {
+  margin: 30px 0;
+}
+
+.gap70 {
+  margin: 35px 0;
+}
+
+.gap80 {
+  margin: 40px 0;
+}
+
+.gap90 {
+  margin: 45px 0;
+}
+
+.gap100 {
+  margin: 50px 0;
+}
+
+.gap110 {
+  margin: 55px 0;
+}
+
+.gap120 {
+  margin: 60px 0;
+}
+
+
+/* CONTACT */
+
+.contactf5 {
+  margin: 5px;
+  margin-top: 5px;
+  padding: 5px 0;
+  font-size: 12px;
+}
+
+.contactf5 .row {
+  margin: 2px;
+  margin-top: 2px;
+  padding: 2px 0;
+}
+
+
+.cta {
+  padding: 30px 0;
+  background: #f2f3f3;
+  position: relative;
+}
+
+.cta h2 {
+  margin: 0;
+}
+
+.cta::after {
+  content: "";
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.07;
+}
+
+.cta .container {
+  position: relative;
+  z-index: 11;
+}
+
+.cta .btn {
+  text-align: left;
+  float: right;
+}
+
+.cta .btn i {
+  float: right;
+  margin: -15px 0;
+}
+
+
+.contact-form input {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border-radius: 0;
+  margin: 0 0 15px;
+  border: none;
+  padding: 0 20px;
+  color: #000;
+}
+
+.contact-form textarea {
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  border-radius: 0;
+  margin: 0 0 15px;
+  border: none;
+  padding: 15px 20px;
+  color: #000;
+}
+
+.contact-form .checkbox-inline input[type=checkbox]{
+  height: 22px;
+  width: auto;
+}
+.contact-form .radio-inline input[type=radio]{
+  height: 22px;
+  width: auto;
+}
+
+footer h4 {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 19px;
+  margin: 0 0 25px;
+}
+
+.cinfo p {
+  position: relative;
+  padding: 0 0 0 30px;
+}
+
+.cinfo p i {
+  position: absolute;
+  left: 0;
+  top: 7px;
+}
+
+.cbutton {
+  background-color: #afa8a8; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+
+
+/* =============================
+   Login Page
+================================ */
+
+.loginpage {
+  padding: 30px 0;
+  background: #f2f3f3;
+  position: relative;
+}
+
+.loginpage h2 {
+  margin: 0;
+}
+
+.loginpage::after {
+  content: "";
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.07;
+}
+
+.loginpage .container {
+  position: relative;
+  z-index: 11;
+}
+
+.loginpage .btn {
+  text-align: left;
+  float: right;
+}
+
+.loginpage .btn i {
+  float: right;
+  margin: -15px 0;
+}
+
+
+.login-form input {
+  width: 30%;
+  height: 45px;
+  background: #fff;
+  border-radius: 0;
+  margin: 0 0 15px;
+  border: none;
+  padding: 0 20px;
+  color: #000;
+}
+
+.login-form textarea {
+  width: 30%;
+  height: 100px;
+  background: #fff;
+  border-radius: 0;
+  margin: 0 0 15px;
+  border: none;
+  padding: 15px 20px;
+  color: #000;
+}
+
+.login-form .checkbox-inline input[type=checkbox]{
+  height: 22px;
+  width: auto;
+}
+.login-form .radio-inline input[type=radio]{
+  height: 22px;
+  width: auto;
+}
