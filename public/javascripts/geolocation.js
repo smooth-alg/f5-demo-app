@@ -10,13 +10,14 @@ function geoFindMe() {
     }
 
     function success(position) {
+        var api_key = "AIzaSyCTKvtMiWfbpGCPp_gvm-KpTq3CywRazU8"
         var latitude  = position.coords.latitude;
         var longitude = position.coords.longitude;
 
         output.innerHTML = '<p>Client Location:</p><p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
 
         var img = new Image();
-        img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+        img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false&key=" + api_key ;
 
         output.appendChild(img);
     }
