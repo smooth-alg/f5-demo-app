@@ -8,7 +8,7 @@ block content
             .container
                 .row
                     .col-md-8.col-md-offset-2
-                        form#login.contact-form(action='https://f5.com/login', method='POST')
+                        form#loginpage.login-form(action='https://f5.com/login', method='POST')
                             .row
                                 .col-md-6
                                     p
@@ -16,8 +16,6 @@ block content
                                     input(type='text', style="background-position: 20%", name='username', placeholder='Username', required='')
                                 .col-md-6
                                     input(type='text', name='password', placeholder='Password', required='')
-
-        p
         button(type=button class="cbutton" onclick="window.open('https://f5.com/products/how-to-buy','_blank');") Submit
 
         p
