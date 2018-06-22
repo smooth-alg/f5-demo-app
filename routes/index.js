@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
     var request_headers = req.headers;
     var request_body = JSON.stringify(req.body);
 
-    res.render('index', { title: 'Demo App',
+    res.render('index', { title: 'Demo App (blue)',
         server_ip: server_ip,
         server_port: server_port,
         client_ip: client_ip,
@@ -38,7 +38,7 @@ router.get('/ws', function(req, res, next) {
     var request_headers = req.headers;
     var request_body = JSON.stringify(req.body);
 
-    res.render('ws', { title: 'Demo App - Websockets',
+    res.render('ws', { title: 'Demo App - Websockets (blue)',
         server_ip: server_ip,
         server_port: server_port,
         client_ip: client_ip,
@@ -63,7 +63,7 @@ router.get('/contact', function(req, res, next) {
     var request_headers = req.headers;
     var request_body = JSON.stringify(req.body);
 
-    res.render('contact', { title: 'Demo App - Contact',
+    res.render('contact', { title: 'Demo App - Contact (blue)',
         server_ip: server_ip,
         server_port: server_port,
         client_ip: client_ip,
@@ -87,7 +87,7 @@ router.get('/login', function(req, res, next) {
     var request_headers = req.headers;
     var request_body = JSON.stringify(req.body);
 
-    res.render('login', { title: 'Demo App - Login',
+    res.render('login', { title: 'Demo App - Login (blue)',
         server_ip: server_ip,
         server_port: server_port,
         client_ip: client_ip,
@@ -112,7 +112,7 @@ router.get('/uri([A-Za-z0-9_]+)', function(req, res, next) {
     var request_headers = req.headers;
     var request_body = JSON.stringify(req.body);
 
-    res.render('index', { title: 'Demo App - Dynamic',
+    res.render('index', { title: 'Demo App - Dynamic (blue)',
         server_ip: server_ip,
         server_port: server_port,
         client_ip: client_ip,
@@ -137,7 +137,7 @@ router.get('/static', function(req, res, next) {
     var request_headers = req.headers;
     var request_body = JSON.stringify(req.body);
 
-    res.render('index', { title: 'Demo App - Static',
+    res.render('index', { title: 'Demo App - Static (blue)',
         server_ip: server_ip,
         server_port: server_port,
         client_ip: client_ip,
