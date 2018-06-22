@@ -41,6 +41,7 @@ debian/
 
 #Private
 *.private
+*.bak
 
 # OS generated files #
 ######################
