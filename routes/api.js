@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
     var request_headers = req.headers;
     var request_body = JSON.stringify(req.body);
 
-    res.render('api', { title: 'Demo App - API (green)',
+    res.render('api', { title: 'Demo App - API',
         server_ip: server_ip,
         server_port: server_port,
         client_ip: client_ip,
@@ -37,7 +37,7 @@ router.post('/', function(req, res, next) {
     var request_headers = req.headers;
     var request_body = JSON.stringify(req.body);
 
-    res.render('api', { title: 'Demo App - API (green)',
+    res.render('api', { title: 'Demo App - API',
         server_ip: server_ip,
         server_port: server_port,
         client_ip: client_ip,
